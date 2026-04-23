@@ -1,8 +1,8 @@
 ---
 theme: default
-title: AI / LLM / 智能体
+title: AI / LLM / Agents
 info: 面向前端团队的一次内部分享
-class: text-center
+class: text-center home-slide
 colorSchema: light
 drawings:
   persist: false
@@ -10,26 +10,35 @@ transition: slide-left
 enableSlideProgress: true
 ---
 
-# AI / LLM / 智能体
+# AI / LLM / Agents
 
-面向前端团队的一次内部分享
+<div class="home-subtitle">面向前端团队的一次内部分享</div>
 
-<div class="abs-br m-6 flex gap-2 text-sm deck-meta">
+<div class="abs-br m-6 flex gap-2 text-sm deck-meta deck-meta-pill">
   <img src="/imgs/icons/sparkles.svg" class="inline w-4 h-4" />
   <span>2026.04</span>
 </div>
 
 ---
+class: question-slide
+---
 
 # 三个核心问题
 
-<v-clicks>
-
-1. **AI 编程是怎样一步步演化到今天这个阶段的？**
-2. **智能体到底"强"在什么地方？它和普通对话式 AI 的区别是什么？**
-3. **在实际工程里，我们应该怎样跟 AI 协作，才能既提效，又不失控？**
-
-</v-clicks>
+<div class="question-grid mt-8">
+  <div class="border rounded p-7 question-card">
+    <span class="question-index">01</span>
+    <p><strong>AI 编程是怎样一步步演化到今天这个阶段的？</strong></p>
+  </div>
+  <div class="border rounded p-7 question-card">
+    <span class="question-index">02</span>
+    <p><strong>智能体到底强在什么地方？它和普通对话式 AI 的区别是什么？</strong></p>
+  </div>
+  <div class="border rounded p-7 question-card">
+    <span class="question-index">03</span>
+    <p><strong>在实际工程里，我们应该怎样跟 AI 协作，才能既提效，又不失控？</strong></p>
+  </div>
+</div>
 
 ---
 
@@ -83,7 +92,6 @@ class: stage-slide
 # 阶段一：代码补全时代
 
 <div class="stage-head">
-  <img src="/imgs/icons/keyboard.svg" class="inline w-6 h-6" />
   <span>从「补全几行代码」开始</span>
 </div>
 
@@ -122,7 +130,6 @@ class: stage-slide
 # 阶段二：对话副驾驶时代
 
 <div class="stage-head">
-  <img src="/imgs/icons/messages-square.svg" class="inline w-6 h-6" />
   <span>从单文件补全走向项目级协作</span>
 </div>
 
@@ -166,7 +173,6 @@ class: stage-slide
 # 阶段三：智能体工作流时代
 
 <div class="stage-head">
-  <img src="/imgs/icons/bot.svg" class="inline w-6 h-6" />
   <span>从「被动响应」变成「自主行动」</span>
 </div>
 
@@ -198,33 +204,32 @@ class: stage-slide
 
 # 智能体时代的真实场景
 
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-  <div class="border rounded p-6 scenario-panel">
+<div class="scenario-grid-six mt-7">
+  <div class="border rounded p-5 scenario-panel compact">
     <div class="scenario-title">
       <img src="/imgs/icons/bug.svg" class="w-5 h-5" />
       <strong>BUG 修复</strong>
     </div>
-    <p>描述复现路径后，智能体自动在浏览器里操作、定位问题、修改代码并验证结果。</p>
+    <p>自动在浏览器里复现路径、定位问题、修改代码并验证结果。</p>
   </div>
 
-  <div class="border rounded p-6 scenario-panel">
+  <div class="border rounded p-5 scenario-panel compact">
     <div class="scenario-title">
       <img src="/imgs/icons/file-text.svg" class="w-5 h-5" />
       <strong>文档生成</strong>
     </div>
-    <p>给一篇 Markdown 或长文档，让它自动生成 PPT，并统一样式和排版。</p>
+    <p>给一篇 Markdown 或长文档，自动生成统一风格的 PPT。</p>
   </div>
 
-  <div class="border rounded p-6 scenario-panel">
+  <div class="border rounded p-5 scenario-panel compact">
     <div class="scenario-title">
       <img src="/imgs/icons/image.svg" class="w-5 h-5" />
       <strong>UI 设计</strong>
     </div>
-    <p>截图真实网页效果，在亮色/暗色、桌面/移动端之间来回验证并迭代界面。</p>
+    <p>截图真实网页效果，在多主题、多端之间来回验证并迭代界面。</p>
   </div>
 
-  <div class="border rounded p-6 scenario-panel">
+  <div class="border rounded p-5 scenario-panel compact">
     <div class="scenario-title">
       <img src="/imgs/icons/languages.svg" class="w-5 h-5" />
       <strong>国际化</strong>
@@ -232,12 +237,21 @@ class: stage-slide
     <p>沿着现有 i18n 和工程结构，把文案翻译后准确落回对应位置。</p>
   </div>
 
-</div>
+  <div class="border rounded p-5 scenario-panel compact">
+    <div class="scenario-title">
+      <img src="/imgs/icons/coins.svg" class="w-5 h-5" />
+      <strong>数据分析报告</strong>
+    </div>
+    <p>批量获取上证所股票数据，生成精美、动态的股票分析报告。</p>
+  </div>
 
-<div class="mt-6 text-sm opacity-70">
-
-和前两个阶段相比，这里的重点已经不是“帮我写一段代码”，而是“围绕目标把整条链路走完”。
-
+  <div class="border rounded p-5 scenario-panel compact">
+    <div class="scenario-title">
+      <img src="/imgs/icons/git-branch-plus.svg" class="w-5 h-5" />
+      <strong>PRD 落地</strong>
+    </div>
+    <p>给它一份 PRD，先拆任务、再写代码，最后补验证把功能做完。</p>
+  </div>
 </div>
 
 ---
@@ -343,13 +357,13 @@ class: stage-slide
 
 # chrome-devtools-mcp
 
-<img src="/imgs/icons/monitor-smartphone.svg" class="inline w-6 h-6" /> 让大模型通过 MCP 与 Chrome DevTools Protocol 通信
+<div class="section-intro">让大模型通过 MCP 直接进入真实浏览器调试现场。</div>
 
-<div class="grid grid-cols-2 gap-6 mt-8">
-  <div class="border rounded p-6">
+<div class="cdp-grid mt-6">
+  <div class="border rounded p-5">
     <strong>Take Snapshot</strong>
-    <p>调用 <code>DOMSnapshot.captureSnapshot</code>，把 HTML 里冗长复杂的 DOM 树压缩成更适合 AI 决策的语义结构。</p>
-    <div class="border rounded p-4 bg-gray-50 mt-4 mono-block">
+    <p>调用 <code>DOMSnapshot.captureSnapshot</code>，把复杂 DOM 压缩成更适合 AI 决策的语义结构。</p>
+    <div class="border rounded p-4 bg-gray-50 mt-3 mono-block">
       {<br>
       &nbsp;&nbsp;"tool": "click",<br>
       &nbsp;&nbsp;"arguments": {<br>
@@ -360,14 +374,14 @@ class: stage-slide
     </div>
   </div>
 
-  <div class="border rounded p-5">
+  <div class="border rounded p-5 cdp-side">
     <img src="/imgs/image-1.png" class="snapshot-shot" />
-    <div class="mini-meta mt-4">base.md 中的 Take Snapshot 截图</div>
-    <ul class="mt-3">
-      <li>Take Screenshot：基于真实渲染继续判断</li>
-      <li>Emulate：切换设备、主题和网络条件</li>
-      <li>Evaluate Script：执行脚本，拿运行态数据和调试线索</li>
-    </ul>
+    <div class="mini-meta mt-3">base.md 中的 Take Snapshot 截图</div>
+    <div class="capability-list mt-3">
+      <div><strong>Take Screenshot</strong><span>基于真实渲染继续判断</span></div>
+      <div><strong>Emulate</strong><span>切换设备、主题和网络条件</span></div>
+      <div><strong>Evaluate Script</strong><span>执行脚本，拿运行态数据和调试线索</span></div>
+    </div>
   </div>
 </div>
 
@@ -375,26 +389,26 @@ class: stage-slide
 
 # 常用 MCP
 
-<div class="grid grid-cols-2 gap-6 mt-8">
-  <div class="border rounded p-6">
+<div class="tool-grid tool-grid-mcp mt-6">
+  <div class="border rounded p-5 tool-card">
     <strong>chrome-devtools</strong>
     <p>直接操作浏览器，查看真实渲染结果，并读取 Console、Network 等调试信息。</p>
-    <ul class="compact-list">
-      <li>Take snapshot：把复杂 DOM 压缩成语义结构</li>
-      <li>Take screenshot：直接基于截图继续迭代</li>
-      <li>Emulate：切换设备、主题和网络条件</li>
-      <li>Evaluate Script：进入运行态调试现场</li>
-    </ul>
+    <div class="micro-chip-grid mt-3">
+      <span>Take snapshot</span>
+      <span>Take screenshot</span>
+      <span>Emulate</span>
+      <span>Evaluate Script</span>
+    </div>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card">
     <strong>fetch</strong>
     <p>拉取网页和文档内容，适合查询官方资料、API 说明和错误信息。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card">
     <strong>context7</strong>
     <p>补充最新文档和框架知识，适合处理依赖官方文档上下文的开发任务。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card">
     <strong>数据库操作</strong>
     <p>直接查询或修改数据库，适合排查数据问题、验证状态和处理后台联动场景。</p>
   </div>
@@ -404,28 +418,28 @@ class: stage-slide
 
 # 常用 Skills
 
-<div class="grid grid-cols-2 gap-6 mt-8">
-  <div class="border rounded p-6">
+<div class="tool-grid tool-grid-skills mt-6">
+  <div class="border rounded p-5 tool-card compact">
     <strong>frontend-design</strong>
-    <p>补充界面设计方向和视觉约束，适合处理布局、风格和组件表现相关的任务。</p>
+    <p>补充界面设计方向和视觉约束，适合处理布局、风格和组件表现。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card compact">
     <strong>find-skills</strong>
-    <p>帮助 AI 快速找到合适的技能集合，减少在能力选择上的试错成本。</p>
+    <p>帮助 AI 快速找到合适技能集合，减少能力选择上的试错成本。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card compact">
     <strong>upload-images</strong>
     <p>把截图、设计稿或素材变成可继续交给模型处理的输入。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card compact">
     <strong>iconify</strong>
     <p>统一图标选型、接入方式和渲染细节，减少实现过程中的碎判断。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card compact">
     <strong>create-skills</strong>
     <p>辅助创建自定义技能，把行为约束和工作流沉淀下来。</p>
   </div>
-  <div class="border rounded p-6">
+  <div class="border rounded p-5 tool-card compact">
     <strong>karpathy-guidelines</strong>
     <p>把 Karpathy 四原则嵌入协作流程，确保智能体按工程规则推进任务。</p>
   </div>
@@ -599,12 +613,15 @@ class: stage-slide
 
 # 对前端工程师意味着什么
 
-<div class="value-slide mt-8">
-  <div class="border rounded p-7 value-lead">
-    <img src="/imgs/icons/compass.svg" class="w-7 h-7 mb-4" />
-    <div class="text-2xl font-bold">工程师的价值，正在从「代码产出速度」转向「决策质量」</div>
-    <p class="mt-4">用了智能体之后，那些“想做但嫌麻烦”的念头更容易被快速落地，但真正稀缺的不是打字速度，而是判断力。</p>
+<div class="border rounded p-7 feature-card value-hero mt-7">
+  <div class="value-hero-head">
+    <img src="/imgs/icons/compass.svg" class="w-7 h-7" />
+    <strong>工程师的价值，正在从「代码产出速度」转向「决策质量」</strong>
   </div>
+  <p>用了智能体之后，那些“想做但嫌麻烦”的念头更容易被快速落地，但真正稀缺的不是打字速度，而是判断力。</p>
+</div>
+
+<div class="value-split mt-6">
   <div class="border rounded p-6">
     <strong>越来越不稀缺</strong>
     <ul>
