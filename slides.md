@@ -3,6 +3,7 @@ theme: default
 title: AI / LLM / 智能体
 info: 面向前端团队的一次内部分享
 class: text-center
+colorSchema: light
 drawings:
   persist: false
 transition: slide-left
@@ -13,7 +14,7 @@ enableSlideProgress: true
 
 面向前端团队的一次内部分享
 
-<div class="abs-br m-6 flex gap-2 text-sm">
+<div class="abs-br m-6 flex gap-2 text-sm deck-meta">
   <img src="/imgs/icons/sparkles.svg" class="inline w-4 h-4" />
   <span>2026.04</span>
 </div>
@@ -58,13 +59,13 @@ enableSlideProgress: true
 
 </div>
 
-<div class="border rounded p-6 text-center border-blue-500! bg-blue-500/10!">
+<div class="border rounded p-6 text-center feature-card">
 
 ### 阶段三<br>智能体工作流
 
 <img src="/imgs/icons/bot.svg" class="w-10 h-10 mt-4 opacity-30 mx-auto" />
 
-<div class="text-sm mt-4">Claude Code · Codex</div>
+<div class="text-sm mt-4">Claude Code · Codex · OpenCode</div>
 <div class="text-xs mt-2 opacity-60">自主行动 · 闭环验证</div>
 
 </div>
@@ -72,17 +73,33 @@ enableSlideProgress: true
 </div>
 
 ---
+class: stage-slide
+---
+
+<div class="stage-watermark">
+  <img src="/imgs/icons/keyboard.svg" />
+</div>
 
 # 阶段一：代码补全时代
 
-<div class="mt-8">
+<div class="stage-head">
+  <img src="/imgs/icons/keyboard.svg" class="inline w-6 h-6" />
+  <span>从「补全几行代码」开始</span>
+</div>
 
-<img src="/imgs/icons/keyboard.svg" class="inline w-6 h-6" /> **工具代表**：Tabnine、Github Copilot（VS Code 插件形态）
-
-**核心特征**：按 Tab 键接受代码建议 — 单向的、基于概率的字符串拼接机器
-
-**人类角色**：开发工程师（AI 只是帮我们省了敲键盘的力气）
-
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>工具代表</strong>
+    <p>Tabnine、GitHub Copilot，以 VS Code 插件形态为主。</p>
+    <strong>核心特征</strong>
+    <p>按 Tab 接受建议，本质上仍是局部上下文上的概率补全。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>人类角色</strong>
+    <p>开发工程师仍然负责完整理解工程，AI 主要帮忙省输入成本。</p>
+    <strong>功能边界</strong>
+    <p>像“瞎子摸象”，只理解光标附近几行代码，缺少全局视角。</p>
+  </div>
 </div>
 
 <div class="mt-8 border rounded p-4 bg-gray-50">
@@ -94,71 +111,87 @@ function debounce(  // ← 你输入到这里
 
 </div>
 
-<div class="mt-6 text-sm opacity-70">
-
-局限：典型的「瞎子摸象」 — AI 缺少对全局的理解，只理解光标前后几行代码
-
-</div>
-
 ---
+class: stage-slide
+---
+
+<div class="stage-watermark">
+  <img src="/imgs/icons/messages-square.svg" />
+</div>
 
 # 阶段二：对话副驾驶时代
 
-<div class="mt-8">
-
-<img src="/imgs/icons/messages-square.svg" class="inline w-6 h-6" /> **工具代表**：Cursor、Trae（VS Code 插件或独立 IDE）
-
-**核心特征**：打破单文件限制，AI 开始拥有项目级工程视野；结合 MCP、Skills
-
-**人类角色**：开发工程师 ➕ 代码审查员
-
+<div class="stage-head">
+  <img src="/imgs/icons/messages-square.svg" class="inline w-6 h-6" />
+  <span>从单文件补全走向项目级协作</span>
 </div>
 
-<div class="mt-8 grid grid-cols-2 gap-6">
-
-<div class="border rounded p-4">
-
-**能做的事**
-- 粘贴报错信息让其分析问题
-- 描述需求文档让 AI 实现功能
-- 引入关键代码行或文件
-- 插入图片辅助理解
-
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>工具代表</strong>
+    <p>Cursor、Trae，既可以是插件，也可以是独立 IDE。</p>
+    <strong>能做什么</strong>
+    <ul>
+      <li>粘贴报错信息让 AI 分析问题</li>
+      <li>描述需求文档让 AI 实现功能</li>
+      <li>引入关键代码行、文件或图片</li>
+    </ul>
+  </div>
+  <div class="border rounded p-6">
+    <strong>核心特征</strong>
+    <p>AI 开始拥有项目级工程视野，也开始结合 MCP、Skills。</p>
+    <strong>真实限制</strong>
+    <ul>
+      <li>复杂任务仍然不太敢直接放手</li>
+      <li>生成代码需要认真 review</li>
+      <li>提示词质量会直接影响结果</li>
+    </ul>
+  </div>
 </div>
 
-<div class="border rounded p-4">
+<div class="mt-6 text-sm opacity-70">
 
-**局限**
-- 不敢布置很有难度的任务
-- 生成代码需要认真审查
-- 大概率还需要手动调整
-- 提示词质量直接影响效果
-
-</div>
+这一阶段的关键词是“能协作了，但还谈不上稳定托付”。
 
 </div>
 
 ---
+class: stage-slide
+---
+
+<div class="stage-watermark">
+  <img src="/imgs/icons/bot.svg" />
+</div>
 
 # 阶段三：智能体工作流时代
 
-<div class="mt-6 text-xl font-bold"><img src="/imgs/icons/bot.svg" class="inline w-6 h-6" /> 从「被动响应」变成了「自主行动」</div>
-
-<div class="mt-8">
-
-**爆发背景**
-- 上下文越来越大，不再只能盯着几百行代码
-- 专业能力明显增强
-- 价格下降，调用成本可接受
-- 多模态支持：文本、图片、网页、终端、浏览器
-
+<div class="stage-head">
+  <img src="/imgs/icons/bot.svg" class="inline w-6 h-6" />
+  <span>从「被动响应」变成「自主行动」</span>
 </div>
 
-<div class="mt-8">
-
-**核心特征**：主动制定计划、调用工具、翻阅文档、操作浏览器、修改文件、运行验证<br>
-走完「计划 → 实施 → 验证」的完整闭环
-
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>工具代表</strong>
+    <p>Claude Code、Codex、OpenCode。</p>
+    <strong>爆发背景</strong>
+    <ul>
+      <li>上下文越来越大</li>
+      <li>专业能力明显增强</li>
+      <li>价格下降，调用成本可接受</li>
+      <li>多模态支持浏览器、终端、图片、网页</li>
+    </ul>
+  </div>
+  <div class="border rounded p-6 feature-card">
+    <strong>核心差异</strong>
+    <p>它不只是“回答你”，而是会为了完成目标主动调用工具、翻文档、改文件、跑验证。</p>
+    <div class="stage-loop">
+      <span>计划</span>
+      <span>实施</span>
+      <span>验证</span>
+    </div>
+    <p class="opacity-70">真正的分水岭，是它开始走完整闭环，而不是只输出一段建议文本。</p>
+  </div>
 </div>
 
 ---
@@ -167,43 +200,43 @@ function debounce(  // ← 你输入到这里
 
 <div class="grid grid-cols-2 gap-6 mt-8">
 
-<div class="border rounded p-6">
+  <div class="border rounded p-6 scenario-panel">
+    <div class="scenario-title">
+      <img src="/imgs/icons/bug.svg" class="w-5 h-5" />
+      <strong>BUG 修复</strong>
+    </div>
+    <p>描述复现路径后，智能体自动在浏览器里操作、定位问题、修改代码并验证结果。</p>
+  </div>
 
-<div class="text-lg font-bold mb-2"><img src="/imgs/icons/bug.svg" class="inline w-5 h-5" /> BUG 修复</div>
+  <div class="border rounded p-6 scenario-panel">
+    <div class="scenario-title">
+      <img src="/imgs/icons/file-text.svg" class="w-5 h-5" />
+      <strong>文档生成</strong>
+    </div>
+    <p>给一篇 Markdown 或长文档，让它自动生成 PPT，并统一样式和排版。</p>
+  </div>
 
-描述复现路径，智能体自动在浏览器中操作、定位问题、修改代码、验证结果
+  <div class="border rounded p-6 scenario-panel">
+    <div class="scenario-title">
+      <img src="/imgs/icons/image.svg" class="w-5 h-5" />
+      <strong>UI 设计</strong>
+    </div>
+    <p>截图真实网页效果，在亮色/暗色、桌面/移动端之间来回验证并迭代界面。</p>
+  </div>
 
-</div>
-
-<div class="border rounded p-6">
-
-<div class="text-lg font-bold mb-2"><img src="/imgs/icons/file-text.svg" class="inline w-5 h-5" /> 文档生成</div>
-
-给一篇 Markdown，让智能体自动生成 PPT，统一样式和排版
-
-</div>
-
-<div class="border rounded p-6">
-
-<div class="text-lg font-bold mb-2"><img src="/imgs/icons/image.svg" class="inline w-5 h-5" /> UI 设计</div>
-
-截图网页在亮色/暗色、PC/移动端的实际渲染效果，设计更好的 UI
-
-</div>
-
-<div class="border rounded p-6">
-
-<div class="text-lg font-bold mb-2"><img src="/imgs/icons/languages.svg" class="inline w-5 h-5" /> 国际化</div>
-
-基于项目架构和已有 i18n 体系，把中文文档翻译成其他语言
-
-</div>
+  <div class="border rounded p-6 scenario-panel">
+    <div class="scenario-title">
+      <img src="/imgs/icons/languages.svg" class="w-5 h-5" />
+      <strong>国际化</strong>
+    </div>
+    <p>沿着现有 i18n 和工程结构，把文案翻译后准确落回对应位置。</p>
+  </div>
 
 </div>
 
 <div class="mt-6 text-sm opacity-70">
 
-这些场景之所以重要：智能体不再只是"给建议"或"补几行代码"，而是真的开始执行任务、调用工具，并对结果负责。
+和前两个阶段相比，这里的重点已经不是“帮我写一段代码”，而是“围绕目标把整条链路走完”。
 
 </div>
 
@@ -232,14 +265,18 @@ function debounce(  // ← 你输入到这里
 
 **不同模型做不同任务**
 
-- 主架构师 → GPT / Claude 旗舰模型
-- 图书管理员 → Kimi K2.5（便宜好用）
-- 前端工程师 → Gemini（擅长视觉）
+<ul>
+  <li>主架构师 → GPT / Claude 旗舰模型</li>
+  <li>图书管理员 → Kimi K2.5（便宜好用）</li>
+  <li>前端工程师 → Gemini（擅长视觉）</li>
+</ul>
 
 **爆火原因**
-1. 被 Anthropic 点名封杀
-2. 不同模型做不同任务，节省花费
-3. 开箱即用，内置 MCP、Skills、提示词
+<ol>
+  <li>被 Anthropic 点名封杀</li>
+  <li>不同模型做不同任务，节省花费</li>
+  <li>开箱即用，内置 MCP、Skills、提示词和 LPS/AST 工具链</li>
+</ol>
 
 </div>
 
@@ -251,71 +288,55 @@ function debounce(  // ← 你输入到这里
 
 <img src="/imgs/icons/sliders-horizontal.svg" class="inline w-6 h-6" /> 配置智能体的超实用必备应用
 
-<div class="mt-8 flex justify-center">
+<div class="mt-7 flex justify-center">
   <img src="/imgs/image.png" class="rounded shadow max-h-60" />
 </div>
 
-<div class="mt-8 grid grid-cols-3 gap-6 text-center">
-
-<div class="border rounded p-4">
-
-**集中管理**
-供应商、MCP、Skills、提示词
-
-</div>
-
-<div class="border rounded p-4">
-
-**API 代理**
-格式转换、故障转移
-
-</div>
-
-<div class="border rounded p-4">
-
-**配置同步**
-导入、导出、备份、同步
-
-</div>
-
+<div class="mt-7 grid grid-cols-3 gap-6">
+  <div class="border rounded p-5 text-center switch-card">
+    <strong>集中管理</strong>
+    <p>供应商、MCP、Skills、提示词</p>
+  </div>
+  <div class="border rounded p-5 text-center switch-card">
+    <strong>API 代理</strong>
+    <p>格式转换、故障转移</p>
+  </div>
+  <div class="border rounded p-5 text-center switch-card">
+    <strong>配置同步</strong>
+    <p>导入、导出、备份、同步</p>
+  </div>
 </div>
 
 ---
 
 # MCP 与 Skills：Agent 的两套基础设施
 
-<div class="mt-12 flex justify-center gap-16">
+<div class="infra-hero mt-8">
+  <div class="border rounded p-7 infra-card">
+    <div class="infra-icon-row">
+      <img src="/imgs/icons/network.svg" class="w-7 h-7" />
+      <strong>MCP</strong>
+    </div>
+    <h3>决定 AI 能做什么</h3>
+    <p>它是 AI 的手和脚，决定它能读什么、操作什么、验证什么。</p>
+    <div class="text-sm opacity-70">动态的 · 可执行的 · 双向的</div>
+  </div>
 
-<div class="text-center">
+  <div class="infra-divider">×</div>
 
-<img src="/imgs/icons/network.svg" class="w-12 h-12 mx-auto mb-4" />
-
-### MCP — AI 的「手和脚」
-
-决定 AI 能接触到什么、能操作什么
-
-<div class="text-sm mt-2 opacity-60">动态的 · 可执行的 · 双向的</div>
-
+  <div class="border rounded p-7 infra-card">
+    <div class="infra-icon-row">
+      <img src="/imgs/icons/brain.svg" class="w-7 h-7" />
+      <strong>Skills</strong>
+    </div>
+    <h3>决定 AI 该怎么做</h3>
+    <p>它是 AI 的脑回路和行为约束，决定它按什么原则推进任务。</p>
+    <div class="text-sm opacity-70">静态的 · 约束性的 · 说明性的</div>
+  </div>
 </div>
 
-<div class="text-center">
-
-<img src="/imgs/icons/brain.svg" class="w-12 h-12 mx-auto mb-4" />
-
-### Skills — AI 的「脑回路」
-
-决定 AI 如何思考，以什么风格做事
-
-<div class="text-sm mt-2 opacity-60">静态的 · 约束性的 · 说明性的</div>
-
-</div>
-
-</div>
-
-<div class="mt-12 text-center text-lg font-bold">
-
-两者缺一不可
-
+<div class="mt-8 border rounded p-5 text-center feature-card">
+  比模型接入更重要的，是一套能复用、能约束、能验证的工作流。
 </div>
 
 ---
@@ -324,494 +345,337 @@ function debounce(  // ← 你输入到这里
 
 <img src="/imgs/icons/monitor-smartphone.svg" class="inline w-6 h-6" /> 让大模型通过 MCP 与 Chrome DevTools Protocol 通信
 
-<div class="mt-6 text-sm opacity-70">
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>Take Snapshot</strong>
+    <p>调用 <code>DOMSnapshot.captureSnapshot</code>，把 HTML 里冗长复杂的 DOM 树压缩成更适合 AI 决策的语义结构。</p>
+    <div class="border rounded p-4 bg-gray-50 mt-4 mono-block">
+      {<br>
+      &nbsp;&nbsp;"tool": "click",<br>
+      &nbsp;&nbsp;"arguments": {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;"uid": "10_34",<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;"includeSnapshot": true<br>
+      &nbsp;&nbsp;}<br>
+      }
+    </div>
+  </div>
 
-给了智能体像人一样观察网页、理解网页、操作网页的能力
-
-</div>
-
-<div class="mt-8 grid grid-cols-2 gap-6">
-
-<div class="border rounded p-6">
-
-**Take Snapshot**
-
-调用 `DOMSnapshot.captureSnapshot`<br>
-将 DOM 树压缩成精简的语义树
-
-```json
-{
-  "tool": "click",
-  "arguments": {
-    "uid": "10_34",
-    "includeSnapshot": true
-  }
-}
-```
-
-</div>
-
-<div class="border rounded p-6">
-
-**Take Screenshot**
-
-获取视窗截图、元素截图、整页截图<br>
-基于真实渲染结果继续迭代
-
-**Emulate**
-
-模拟移动端/PC端、亮色/暗色模式、网络限制
-
-**Evaluate Script**
-
-执行任意 JavaScript，获取组件实例、DOM 对象引用
-
-</div>
-
+  <div class="border rounded p-5">
+    <img src="/imgs/image-1.png" class="snapshot-shot" />
+    <div class="mini-meta mt-4">base.md 中的 Take Snapshot 截图</div>
+    <ul class="mt-3">
+      <li>Take Screenshot：基于真实渲染继续判断</li>
+      <li>Emulate：切换设备、主题和网络条件</li>
+      <li>Evaluate Script：执行脚本，拿运行态数据和调试线索</li>
+    </ul>
+  </div>
 </div>
 
 ---
 
-# 对前端实用的 MCP 例子
+# 常用 MCP
 
 <div class="grid grid-cols-2 gap-6 mt-8">
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/database.svg" class="inline w-5 h-5" /> **filesystem**
-读取项目源码、配置文件、路由、样式、i18n 文案，适合跨文件理解和批量修改
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/globe.svg" class="inline w-5 h-5" /> **fetch**
-抓官方文档、API 文档、报错说明和兼容性资料。前端生态变化快，实用性很高
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/git-fork.svg" class="inline w-5 h-5" /> **git**
-查看提交记录、diff 和历史上下文，适合理解"这段代码为什么这样写"，也适合 Code Review
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/pencil-ruler.svg" class="inline w-5 h-5" /> **Figma MCP**
-把设计稿里的节点信息、尺寸、颜色、文案和组件结构带进对话，帮助从设计到代码的落地
-
-</div>
-
+  <div class="border rounded p-6">
+    <strong>chrome-devtools</strong>
+    <p>直接操作浏览器，查看真实渲染结果，并读取 Console、Network 等调试信息。</p>
+    <ul class="compact-list">
+      <li>Take snapshot：把复杂 DOM 压缩成语义结构</li>
+      <li>Take screenshot：直接基于截图继续迭代</li>
+      <li>Emulate：切换设备、主题和网络条件</li>
+      <li>Evaluate Script：进入运行态调试现场</li>
+    </ul>
+  </div>
+  <div class="border rounded p-6">
+    <strong>fetch</strong>
+    <p>拉取网页和文档内容，适合查询官方资料、API 说明和错误信息。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>context7</strong>
+    <p>补充最新文档和框架知识，适合处理依赖官方文档上下文的开发任务。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>数据库操作</strong>
+    <p>直接查询或修改数据库，适合排查数据问题、验证状态和处理后台联动场景。</p>
+  </div>
 </div>
 
 ---
 
-# Skills：为什么和 MCP 缺一不可？
+# 常用 Skills
 
-<div class="mt-8">
-
-以设计一个 UI 精美的登录页为例：
-
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>frontend-design</strong>
+    <p>补充界面设计方向和视觉约束，适合处理布局、风格和组件表现相关的任务。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>find-skills</strong>
+    <p>帮助 AI 快速找到合适的技能集合，减少在能力选择上的试错成本。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>upload-images</strong>
+    <p>把截图、设计稿或素材变成可继续交给模型处理的输入。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>iconify</strong>
+    <p>统一图标选型、接入方式和渲染细节，减少实现过程中的碎判断。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>create-skills</strong>
+    <p>辅助创建自定义技能，把行为约束和工作流沉淀下来。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>karpathy-guidelines</strong>
+    <p>把 Karpathy 四原则嵌入协作流程，确保智能体按工程规则推进任务。</p>
+  </div>
 </div>
+
+---
+
+# Skills 为什么和 MCP 缺一不可？
+
+<div class="mt-6 text-lg">以设计一个 UI 精美的登录页为例：</div>
 
 <div class="mt-6 grid grid-cols-2 gap-6">
-
-<div class="border rounded p-6 bg-green-50 border-green-400!">
-
-<img src="/imgs/icons/check-check.svg" class="inline w-5 h-5" /> **有 Skill + 有 MCP**
-
-懂得按设计规则去做，并在浏览器里截图验证、微调、验证，最终得到满意结果
-
-</div>
-
-<div class="border rounded p-6 bg-yellow-50 border-yellow-400!">
-
-⚠️ **只有 Skill 没有 MCP**
-
-单个元素看着还行，但整体依然丑陋
-
-</div>
-
-<div class="border rounded p-6 bg-yellow-50 border-yellow-400!">
-
-⚠️ **只有 MCP 没有 Skill**
-
-能打开页面截图验证，却不知道如何设计好看的页面
-
-</div>
-
-<div class="border rounded p-6 bg-red-50 border-red-400!">
-
-❌ **没有 Skill 也没有 MCP**
-
-设计出来的页面非常原始，毫无设计可言
-
-</div>
-
-</div>
-
----
-
-# 对前端实用的 Skills 例子
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/sparkles.svg" class="inline w-5 h-5" /> **frontend-design**
-
-给 AI 一套更明确的设计规则，避免产出"默认味很重"的页面
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/blocks.svg" class="inline w-5 h-5" /> **iconify**
-
-统一图标接入方式，快速选择图标，处理不同框架里的渲染方案
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/badge-check.svg" class="inline w-5 h-5" /> **web-design-guidelines**
-
-检查页面的信息层级、视觉一致性、可访问性和交互细节，适合 UI Review
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/lightbulb.svg" class="inline w-5 h-5" /> **karpathy-guidelines**
-
-约束 AI 编码时先思考、少乱改、重验证，尤其适合改生产代码
-
-</div>
-
-</div>
-
----
-
-# AI 编程时的基本准则
-
-<div class="mt-8 grid grid-cols-2 gap-8">
-
-<div>
-
-### <img src="/imgs/icons/lightbulb.svg" class="inline w-5 h-5" /> 1. 说出来，让 AI 真的懂你
-
-不要把关键信息省略掉。脑子里有判断标准、业务边界、不希望它碰的文件、必须经过的验证步骤 — 都要明确说出来。
-
-越是复杂任务，越不能靠 AI 猜。
-
-</div>
-
-<div>
-
-### <img src="/imgs/icons/workflow.svg" class="inline w-5 h-5" /> 2. 拆解工作流程，交代给 AI
-
-不要只给抽象目标。把你平时自己干活的思考过程拆开来：
-
-1. 先理解问题和影响范围
-2. 再定位相关代码和上下文
-3. 再提出修改方案
-4. 修改完成后跑验证
-5. 最后检查是否引入副作用
-
-</div>
-
-<div>
-
-### <img src="/imgs/icons/search.svg" class="inline w-5 h-5" /> 3. 智能体一定要支持在线搜索
-
-很多问题依赖最新信息：库的版本变化、官方文档更新、兼容性说明、社区 issue。没有在线搜索能力的智能体，只是"记忆里的专家"。
-
-</div>
-
-<div>
-
-### <img src="/imgs/icons/image.svg" class="inline w-5 h-5" /> 4. 遇到 UI/交互/报错类问题，尽量给图片
-
-前端很多问题本身就是视觉和上下文敏感的。截图、设计稿、报错截图一起给 AI，判断质量会明显上升。
-
-</div>
-
+  <div class="border rounded p-6 bg-green-50">
+    <strong>有 Skill + 有 MCP</strong>
+    <p>懂得按设计规则去做，也能在浏览器里截图验证、微调和闭环验收。</p>
+  </div>
+  <div class="border rounded p-6 bg-yellow-50">
+    <strong>只有 Skill 没有 MCP</strong>
+    <p>单个元素可能看着还行，但缺少真实渲染验证，整体很容易失控。</p>
+  </div>
+  <div class="border rounded p-6 bg-yellow-50">
+    <strong>只有 MCP 没有 Skill</strong>
+    <p>它知道怎么打开页面和截图，但不知道什么叫“好设计”。</p>
+  </div>
+  <div class="border rounded p-6 bg-red-50">
+    <strong>既没有 Skill，也没有 MCP</strong>
+    <p>结果通常会非常原始，只剩模型默认输出，没有工程感和设计感。</p>
+  </div>
 </div>
 
 ---
 
 # Karpathy 编程四原则
 
-<div class="mt-8">
-
-| 原则 | 解决什么问题 |
-|------|-------------|
-| <img src="/imgs/icons/brain.svg" class="inline w-4 h-4" /> **编码前思考** | 错误假设、隐藏困惑、缺少权衡 |
-| <img src="/imgs/icons/minimize-2.svg" class="inline w-4 h-4" /> **简洁优先** | 过度复杂、臃肿抽象 |
-| <img src="/imgs/icons/pencil-ruler.svg" class="inline w-4 h-4" /> **精准修改** | 无关编辑、触碰不应碰的代码 |
-| <img src="/imgs/icons/route.svg" class="inline w-4 h-4" /> **目标驱动执行** | 通过测试优先、可验证的成功标准 |
-
-</div>
-
-<div class="mt-8 text-sm opacity-70">
-
-不是教人"怎么写提示词"，而是教你如何把工程上的好习惯，翻译成 Agent 能执行的规则。
-
-</div>
-
----
-
-# 原则一：编码前先思考
-
-<div class="mt-8 text-xl font-bold"><img src="/imgs/icons/brain.svg" class="inline w-6 h-6" /> 不要假设、妄下断言。不要隐藏困惑。坦诚地权衡利弊。</div>
-
-<div class="mt-8">
-
-- 明确陈述假设
-- 若存在多种解释请提出，不要默默做选择
-- 若有更简单的方法请提出
-- 必要时坚持己见
-- 如有疑问请提出
-
-</div>
-
-<div class="mt-8 border rounded p-4 bg-red-50">
-
-⚠️ 模型一旦基于错误假设启动，它会非常努力地在错误方向上一路做下去，而且做得看起来还挺像那么回事。
-
-</div>
-
----
-
-# 原则二：简洁优先
-
-<div class="mt-8 text-xl font-bold"><img src="/imgs/icons/minimize-2.svg" class="inline w-6 h-6" /> 用最少的代码解决问题。不要进行任何推测。</div>
-
-<div class="mt-8 grid grid-cols-2 gap-6">
-
-<div>
-
-- 没有超出要求的功能
-- 不为一次性代码进行抽象
-- 没有提供未要求的"灵活性"或"可配置性"
-- 对于不可能出现的情况，不进行错误处理
-
-</div>
-
-<div class="border rounded p-4 bg-yellow-50">
-
-**检验标准**
-
-资深工程师会认为这过于复杂吗？如果是，简化它。
-
-如果你写了 200 行，而 50 行就可以写完，那就重写。
-
-</div>
-
-</div>
-
----
-
-# 原则三：精准修改
-
-<div class="mt-8 text-xl font-bold"><img src="/imgs/icons/pencil-ruler.svg" class="inline w-6 h-6" /> 只碰你必须碰的东西。只清理自己造成的混乱。</div>
-
-<div class="mt-8 grid grid-cols-2 gap-6">
-
-<div>
-
-**改动现有文件时：**
-- 不要"改进"相邻的代码、注释或格式
-- 不要重构没有问题的代码
-- 即使做法不同，也要保持与现有风格一致
-- 发现无关死代码 → 指出来，不要删除
-
-</div>
-
-<div>
-
-**当你创建了孤立文件时：**
-- 删除因你的修改而不再使用的导入项/变量/函数
-- 除非被要求，否则不要删除已有的无效代码
-
-</div>
-
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>编码前思考</strong>
+    <p>先说清假设、困惑和取舍，别在错误前提上越跑越远。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>简洁优先</strong>
+    <p>能用更少代码解决，就不要为了“显得灵活”而过度抽象。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>精准修改</strong>
+    <p>只碰和目标直接相关的地方，避免顺手改出一堆无关 diff。</p>
+  </div>
+  <div class="border rounded p-6 feature-card">
+    <strong>目标驱动执行</strong>
+    <p>先定义什么算成功，再围绕测试、验证和验收标准去推进实现。</p>
+  </div>
 </div>
 
 <div class="mt-6 text-sm opacity-70">
-
-测试要求：每一行修改后的代码都应该直接追溯到用户的请求。
-
-</div>
-
----
-
-# 原则四：目标驱动执行
-
-<div class="mt-8 text-xl font-bold"><img src="/imgs/icons/route.svg" class="inline w-6 h-6" /> 定义成功标准。循环验证直至通过。</div>
-
-<div class="mt-8">
-
-| 不要这样做... | 转化为... |
-|--------------|----------|
-| "添加验证" | "为无效输入编写测试，然后让它们通过" |
-| "修复 bug" | "编写重现 bug 的测试，然后让它通过" |
-| "重构 X" | "确保重构前后测试都能通过" |
-
-</div>
-
-<div class="mt-8 border rounded p-4 bg-blue-50">
-
-> "LLM 非常擅长循环执行直到达成特定目标……不要告诉它该做什么，给它成功标准，然后看着它完成。" — Andrej Karpathy
-
-</div>
-
----
-
-# 目标驱动执行：如何判断它在起作用
-
-<div class="mt-8 grid grid-cols-2 gap-6">
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/check-check.svg" class="inline w-5 h-5" /> **diff 中不必要的改动更少** — 只有请求的改动出现
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/check-check.svg" class="inline w-5 h-5" /> **因过度复杂而导致的重写更少** — 代码第一次就写得简洁
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/check-check.svg" class="inline w-5 h-5" /> **澄清问题在实现之前提出** — 而不是在犯错之后
-
-</div>
-
-<div class="border rounded p-6">
-
-<img src="/imgs/icons/check-check.svg" class="inline w-5 h-5" /> **干净、精简的 PR** — 没有顺带的重构或"改进"
-
-</div>
-
-</div>
-
----
-
-# 对前端工程师意味着什么
-
-<div class="mt-8">
-
-用了智能体之后，再次有了刚接触编程时的兴奋感。很多"想做但嫌麻烦"的念头，现在真的有机会快速落地。
-
-</div>
-
-<div class="mt-8 text-xl font-bold">
-
-<img src="/imgs/icons/compass.svg" class="inline w-6 h-6" /> 工程师的价值，正在从「代码产出速度」转向「决策质量」
-
-</div>
-
-<div class="mt-8 grid grid-cols-2 gap-6">
-
-<div>
-
-**越来越不稀缺**
-- 快速写代码的能力
-- 机械性的键盘输入
-- 单纯的代码产出量
-
-</div>
-
-<div>
-
-**越来越值钱**
-- 判断需求是否合理
-- 设计方案是否成立
-- 实现路径是否稳妥
-- 生成结果是否可靠
-
-</div>
-
-</div>
-
----
-
-# 一个不太严谨但很好懂的比喻
-
-<div class="mt-12 flex justify-center gap-16">
-
-<div class="text-center max-w-60">
-
-<img src="/imgs/icons/book-open-text.svg" class="w-12 h-12 mx-auto mb-4" />
-
-### LLM
-
-像一个掌握了很多数学定理的学生
-
-知道很多知识点，但刷题不够多，遇到复杂问题时，不一定知道这些定理该怎样组合使用
-
-</div>
-
-<div class="text-center max-w-60">
-
-<img src="/imgs/icons/bot.svg" class="w-12 h-12 mx-auto mb-4" />
-
-### 智能体
-
-像你在旁边不断给它提示
-
-这一步先看条件，这一步先做验证，这一步再用哪个方法。于是它最终有机会把原本不会做的复杂题，真的做出来
-
-</div>
-
+不是教人怎么“写提示词”，而是教你如何把工程习惯翻译成 Agent 能执行的规则。
 </div>
 
 ---
 
 # 必须保持清醒的一点
 
-<div class="mt-8 border rounded p-6 bg-red-50 text-lg">
+<div class="border rounded p-7 bg-red-50 mt-10">
+  <div class="text-2xl font-bold">⚠️ AI 编码代理天然倾向于走最短路径</div>
+  <p class="mt-4">最短路径通常意味着跳过规范、测试、安全审查，以及那些真正让软件可靠的工程实践。</p>
+</div>
 
-⚠️ AI 编码代理天然倾向于走最短路径
+<div class="mt-8 border rounded p-6">
+  所以 Agent Skills 的价值，不是把模型变得更聪明，而是让它更像一个成熟工程师，知道哪些步骤不能省、哪些标准必须过。
+</div>
 
-最短路径往往意味着跳过规范、跳过测试、跳过安全审查、跳过很多让软件可靠的工程实践
+---
+
+# 和 AI 协作更稳的三条原则
+
+<div class="grid grid-cols-3 gap-6 mt-10">
+  <div class="border rounded p-6">
+    <strong>目标说清楚</strong>
+    <p>把判断标准、边界条件、不能碰的文件、必须经过的验证步骤讲明白。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>流程交出去</strong>
+    <p>不要只给抽象目标，要把你平时做事的顺序和检查点也一并交代。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>验收抓在手里</strong>
+    <p>把“看起来像做完了”改成“有验证地证明做完了”。</p>
+  </div>
+</div>
+
+---
+
+# 把工作流交代给 AI
+
+<div class="workflow-grid mt-8">
+  <div class="border rounded p-6">
+    <strong>1. 先理解问题和影响范围</strong>
+    <p>告诉它问题背景、相关模块和你最担心的副作用。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>2. 再定位代码和上下文</strong>
+    <p>让它先找相关文件、关键链路和依赖关系，再进入改动。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>3. 再提出修改方案</strong>
+    <p>先说明会改什么、为什么这样改，再动手实现。</p>
+  </div>
+  <div class="border rounded p-6 feature-card">
+    <strong>4. 修改后跑验证，再检查副作用</strong>
+    <p>把测试、截图、构建、冒烟验证和回归检查明确列出来。</p>
+  </div>
+</div>
+
+---
+
+# 给 AI 足够新的信息和视觉上下文
+
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>在线搜索不能缺</strong>
+    <p>很多问题依赖最新信息：库版本变化、官方文档更新、兼容性说明、社区 issue。</p>
+    <p class="opacity-70">没有在线搜索能力的智能体，更像“记忆里的专家”。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>UI / 报错问题尽量带图</strong>
+    <p>截图、设计稿、报错图一起给，判断质量会明显提升，因为这些问题本身就高度依赖视觉和上下文。</p>
+  </div>
+</div>
+
+---
+
+# 从“让它做”到“定义成功”
+
+<div class="mt-8">
+
+| 不要这样说 | 更好的成功标准 |
+|------------|----------------|
+| 添加验证 | 为无效输入写测试，然后让它们通过 |
+| 修复 bug | 先重现 bug，再让它稳定通过 |
+| 重构 X | 确保重构前后测试都能通过 |
 
 </div>
 
-<div class="mt-8 text-lg">
+<div class="mt-8 border rounded p-5 bg-blue-50">
+  “LLM 非常擅长循环执行直到达成特定目标……不要告诉它该做什么，给它成功标准，然后看着它完成。” — Andrej Karpathy
+</div>
 
-所以 Agent Skills 这样的机制会越来越重要 — 它不是在帮模型变聪明，而是在帮模型变得更像一个真正成熟的工程师，知道哪些步骤不能省，哪些标准必须过。
+---
 
+# 如何判断这套协作方式在起作用
+
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="border rounded p-6">
+    <strong>不必要的 diff 更少</strong>
+    <p>只出现和目标直接相关的改动。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>过度复杂导致的重写更少</strong>
+    <p>代码第一次就更接近“够用且简洁”。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>澄清问题更早出现</strong>
+    <p>而不是在实现错了以后才发现前提不成立。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>PR 更干净</strong>
+    <p>没有顺手的“改进”和无关重构。</p>
+  </div>
+</div>
+
+---
+
+# 对前端工程师意味着什么
+
+<div class="value-slide mt-8">
+  <div class="border rounded p-7 value-lead">
+    <img src="/imgs/icons/compass.svg" class="w-7 h-7 mb-4" />
+    <div class="text-2xl font-bold">工程师的价值，正在从「代码产出速度」转向「决策质量」</div>
+    <p class="mt-4">用了智能体之后，那些“想做但嫌麻烦”的念头更容易被快速落地，但真正稀缺的不是打字速度，而是判断力。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>越来越不稀缺</strong>
+    <ul>
+      <li>快速写代码的能力</li>
+      <li>机械性的键盘输入</li>
+      <li>单纯的代码产出量</li>
+    </ul>
+  </div>
+  <div class="border rounded p-6 feature-card">
+    <strong>越来越值钱</strong>
+    <ul>
+      <li>判断需求是否合理</li>
+      <li>设计方案是否成立</li>
+      <li>实现路径是否稳妥</li>
+      <li>生成结果是否可靠</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 一个不太严谨但很好懂的比喻
+
+<div class="analogy-grid mt-10">
+  <div class="border rounded p-8 analogy-card">
+    <img src="/imgs/icons/book-open-text.svg" class="w-12 h-12 mb-5 mx-auto" />
+    <h3>LLM</h3>
+    <p>像一个掌握了很多数学定理的学生。</p>
+    <p class="opacity-70">知道很多知识点，但刷题不够多，遇到复杂问题时，不一定知道这些定理该怎样组合使用。</p>
+  </div>
+  <div class="analogy-arrow">→</div>
+  <div class="border rounded p-8 analogy-card feature-card">
+    <img src="/imgs/icons/bot.svg" class="w-12 h-12 mb-5 mx-auto" />
+    <h3>智能体</h3>
+    <p>像你在旁边不断给它提示。</p>
+    <p class="opacity-70">这一步先看条件，这一步先做验证，这一步再用哪个方法，于是它终于有机会把复杂题真的做出来。</p>
+  </div>
+</div>
+
+---
+
+# 真正的竞争力
+
+<div class="border rounded p-8 feature-card mt-14 text-center">
+  <div class="text-3xl font-bold leading-tight">未来竞争力 = 能不能带着 AI<br>稳定地产出正确结果</div>
+  <p class="mt-6 text-lg">不是提示词花样更多，而是更会表达目标、约束流程、建立标准、做出判断。</p>
 </div>
 
 ---
 
 # 三个收尾结论
 
-<v-clicks>
-
-1. **AI 编程已经从代码补全 → 对话副驾驶 → 智能体工作流时代**<br>
-   真正的变化不只是模型更强了，而是它开始具备「行动能力」和「验证能力」
-
-2. **智能体值得前端团队重点关注**<br>
-   它和浏览器、视觉、交互、多端适配这些前端核心场景天然契合<br>
-   MCP + Skills 结合后，有机会参与完整的工程闭环
-
-3. **工程师最需要升级的，不是提示词技巧**<br>
-   而是如何表达目标、约束流程、建立标准、做出判断<br>
-   未来竞争力 = 能不能带着 AI，一起稳定地产出正确结果
-
-</v-clicks>
+<div class="grid grid-cols-3 gap-6 mt-10">
+  <div class="border rounded p-6">
+    <strong>1. AI 编程已经进入智能体工作流时代</strong>
+    <p>真正的变化，不只是模型更强，而是它具备了行动能力和验证能力。</p>
+  </div>
+  <div class="border rounded p-6">
+    <strong>2. 前端团队值得重点关注这波变化</strong>
+    <p>浏览器、视觉、交互、多端适配，天然就是智能体最容易形成闭环的场景。</p>
+  </div>
+  <div class="border rounded p-6 feature-card">
+    <strong>3. 工程师最需要升级的是判断力</strong>
+    <p>表达目标、约束流程、建立验收标准，会比“写得快”更重要。</p>
+  </div>
+</div>
 
 ---
+class: finale-slide
+---
 
-<div class="mt-24 text-center text-2xl font-bold">
+# 谢谢大家
 
-谢谢大家 🙏
-
-</div>
+<div class="finale-sub">欢迎继续交流 AI / LLM / 智能体协作实践</div>
