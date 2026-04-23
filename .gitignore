@@ -1,0 +1,8 @@
+node_modules
+.slidev-dist
+slidev-export*
+*.pdf
+.DS_Store
+.tmp/
+speech-overview_*副本*.png
+speech-overview copy.*
